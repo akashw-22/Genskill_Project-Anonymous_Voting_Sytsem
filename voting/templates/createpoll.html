@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang = "en">
+
+	<head>
+		<meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    
+	    <title>Voting</title>
+	
+	</head>
+	
+	<body>
+	<h3>Create Polls<h3>
+		
+		<form id = "createpoll" method = "post" action = "{{url_for('home.createpoll')}}">
+			
+			<label for = "pollname">Poll Name</label>
+			<input id = "pollname" type = "text" name = "pollname" required>
+			<br>
+			
+			<label for = "polldp">Poll Description</label>
+			<input id = "polldp" type = "text" name = "polldp" required>
+			<br>
+			
+			<label for = "endtime">Poll Endtime (yyyy-mm-dd hh:mm:ss)</label>
+			<input id = "endtime" type = "datetime-local" name = "endtime" required>
+			<br>
+			
+			<label for = "A">Enter option 1</label>
+			<input id = "A" type = "text" name = "A" required>
+			<br>
+			
+			<label for = "B">Enter option 2</label>
+			<input id = "B" type = "text" name = "B" required>
+			<br>
+			
+			<input type = "Submit" value = "Submit">
+			<br>
+		</form>
+	</body>
+</html>

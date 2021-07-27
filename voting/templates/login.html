@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang = "en">
+
+	<head>
+		<meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    
+	    <title>Voting</title>
+	
+	</head>
+	
+	<body>
+		
+		<div id = "head">
+			<h1>Anonymous Voting Site</h1>
+			<p id = "headText">-text text text</p>
+		</div>
+		
+		<div id = "content">
+			
+		<div id = "login card">
+			<p id = "login card head">Login to host or participate in a poll</p>
+			<form id = "login" method = "post" action = "/login">
+			
+				<label for = "username">Username</label>
+				<input id = "username" type = "text" name = "username" required>
+				<br>
+				
+				<label for = "password">Password</label>
+				<input id = "password" type = "password" name = "password" required>
+				<br>
+				<!-- add password visiblity if possible -->
+				
+				<input type = "submit" value = "Login">
+				
+				<p id = "no account">No account?</p>
+				<a href = "{{url_for('signup')}}">click here</a>
+				
+			</form>
+		</div>
+		
+		<br>
+	
+		</div>
+	</body>
+</html>

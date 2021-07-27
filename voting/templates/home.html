@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang = "en">
+
+	<head>
+		<meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    
+	    <title>Voting</title>
+	
+	</head>
+	
+	<body>
+		Welcome {{name}}
+		
+		
+		<br>
+		<br>
+		
+		<form id = "createpoll" method = "POST" action = "{{url_for('home.home')}}">
+		<input type = "submit" value = "CREATE POLL">
+		</form>
+			
+		<br>
+		
+		<a href = "{{url_for('yourpolls.yourpolls')}}">Click Here to View your polls</a>
+			
+			<br>
+			<br>
+			Running Polls : {{count}}
+		
+		<br>
+		
+		<table>
+			<thead>
+				<tr>
+					<th>Poll Name</th>
+					<th>Creator</th>
+					<th>End Time</th>
+					<th>link</th>
+				</tr>
+			</thead>
+			
+			<tbody>
+				{% for (poll_name, creator, endtime, id) in l%}
+				<tr>
+					<td>{{poll_name}}</td>
+					<td>{{creator}}</td>
+					<td>{{endtime}}</td>
+					<td><a href = "{{url_for('home.poll', pollid = id)}}">Link</a></td>
+				<tr>
+				{% endfor %}
+			</tbody>
+		</table>		
+			
+		<br>
+		<a href = "{{url_for('logout')}}">Logout</a>
+	</body>
+</html>

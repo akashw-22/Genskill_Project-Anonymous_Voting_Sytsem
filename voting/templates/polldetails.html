@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang = "en">
+
+	<head>
+		<meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    
+	    <title>Voting</title>
+	
+	</head>
+	
+	<body>
+		
+		<h2>{{details[0][0]}} - Poll Name : {{details[0][1]}}</h2>
+		<br>
+		
+		Start Time : {{details[0][3]}}
+		<br>
+		End Time : {{details[0][4]}}
+		<br>
+		
+		<h3>Poll Description : {{details[0][2]}}</h3>
+		<br>
+		<br>
+		
+		total count = {{count}}
+		
+		{% for id, pollname, polldescription, starttime, endtime, optionname, optioncount in details %}
+			<p>
+			Option:{{optionname}}
+			option Count: {{optioncount}}
+			</p>
+			<br>
+		{% endfor %}
+	</body>
+	
+</html>
+		

@@ -1,0 +1,38 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    
+	    <title>Voting</title>
+	
+	</head>
+	
+	<body>
+		<h2>You have created {{count}} polls</h2>
+		<table>
+			<thead>
+				<tr>
+					<th>Poll Name</th>
+					<th>Start Time</th>
+					<th>End Time</th>
+					<th>Status</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for id, pollname, starttime, endtime in polls%}
+				<tr>
+					<td>{{pollname}}</td>
+					<td>{{starttime}}</td>
+					<td>{{endtime}}</td>
+					{% if time > endtime %}
+					<td>Completed</td>
+					{% else %}
+					<td>Running</td>
+					{% endif %}
+					<td><a href = "{{url_for('yourpolls.polldetails', pollid=id)}}">{{id}}</a>
+				</tr>
+				{% endfor %}
+			<tbody>
+		</table>
+	</body>
+</html>

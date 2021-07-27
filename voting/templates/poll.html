@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang = "en">
+
+	<head>
+		<meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    
+	    <title>Voting</title>
+	
+	</head>
+	
+	<body>
+	
+		{{s}}
+		
+		{% for creator, pollname, polldp, starttime, endtime, pollid in pollinfo %}
+		<h2>{{pollname}}</h2>
+		<p>Creator-{{creator}}</p>
+		
+		<br>
+		
+		<h3>{{polldp}}</h2>
+		
+		Start Time : {{starttime}}
+		<br>
+		End Time : {{endtime}}
+		
+		<h3>OPTIONS</h3>
+		
+		<form id = "options" method = "POST" action = "{{url_for('home.poll', pollid = pollid)}}">
+		
+			<label for = "option">Chose your option</label>	
+				<select name = "option" id = "option">
+					{% for id, option in options%}
+					<option value = "{{id}}">{{option}}</option>
+					{% endfor %}
+				</select>
+			
+			<input type = "submit" value = "submit">
+		</form>
+		
+		{% endfor %}
+		
+		<a href = "{{url_for('home.home')}}">Return home</a>
+				
+	</body>
+</html>
