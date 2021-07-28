@@ -79,7 +79,7 @@ def createpoll():
 
 
 
-#function for participating int the polls and storing options in the server	
+#function for participating in the polls and storing options in the server	
 @bp.route("/poll/<pollid>", methods = ["POST", "GET"])
 def poll(pollid):
 
@@ -94,26 +94,26 @@ def poll(pollid):
 	con = db.get_db()
 	cur = con.cursor()
 	
-	cur.execute("select p.userid, o.op_name, o.id from PARTICIPATED p, OPTIONS o where polls = %s AND o.id = p.opted AND p.userid = %s;", (pollid, userid,))
+	cur.execute("select p.userid, o.op_name, o.id from PARTICIPATED p, OPTIONS o where polls = %s AND o.id = p.opted AND p.userid = %s order by op_name desc;", (pollid, userid,))
 	
 	selected = cur.fetchall()
 	
 	if len(selected) == 0:
-		s = ""
+		s = "Chose Your Option"
 	else:
-		s = f"You have selected {selected[0][1]}"
+		s = f"You chose: {selected[0][1]}"
 	
 	if request.method == "POST":
 		
 		#print(session['userid'])
 		optionid = request.form["option"]
 		
-		if s != "" and selected[0][2] != optionid:
+		if s != "Chose Your Option" and selected[0][2] != optionid:
 			cur.execute('update OPTIONS set op_count = op_count + 1 where id = %s;', (optionid,))
 			cur.execute('update OPTIONS set op_count = op_count - 1 where id = %s;', (selected[0][2],))	
 			cur.execute("delete from PARTICIPATED where userid = %s AND polls = %s;", (userid, pollid,))	
 			cur.execute("insert into PARTICIPATED values (%s, %s, %s);", (userid, pollid, optionid,))
-		elif s == "":
+		elif s == "Chose Your Option":
 			cur.execute('update OPTIONS set op_count = op_count + 1 where id = %s;', (optionid,))
 			cur.execute("insert into PARTICIPATED values (%s, %s, %s);", (userid, pollid, optionid,))
 		

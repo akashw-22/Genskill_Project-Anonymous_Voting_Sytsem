@@ -6,43 +6,48 @@
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
 	    
 	    <title>Voting</title>
-	
+		
+		<link href="{{ url_for('static', filename='info.css') }}" rel="stylesheet"/>
+		
 	</head>
 	
 	<body>
 		
-		<div id = "head">
-			<h1>Anonymous Voting Site</h1>
-			<p id = "headText">-text text text</p>
-		</div>
-		
-		<div id = "signup card">
+		<div class = "wrapper">
+			<div class = "container">
 			
-			<form id = "signup" method = "post" action = "/signup">
+				<p class = "head">Signup</p>
 				
-				<label for = "name">Name</label>
-				<input id = "name" name = "name" type = "text" required>
+				<form id = "signup" method = "post" action = "/signup">
+				
+					<label class = "label" for = "name">Name</label>
+					<input class = "textbox" id = "name" name = "name" type = "text" required>
+					<br>
+					
+					<label class = "label" for = "age">Age</label>
+					<input class = "textbox" id = "age" name = "age" type = "number" onkeypress="return event.charCode >= 48" min="1"  required>
+					<br>
+				
+					<label class = "label" for = "username">Username</label>
+					<input class = "textbox" id = "username" name = "username" type = "text" required>
+					<br>
+				
+					<label class = "label" for = "password">Password</label>
+					<input class = "textbox" id = "password" name = "password" type = "password" required>
+					<br>
+				
+					<label class = "label" for = "confirm_p">Confirm</label>
+					<input class = "textbox" id = "confirm_p" name = "confirm_p" type = "password" required>
+					<br>
+				
+					<input class = "submit" type = "submit" value = "Signup">
+				</form>
+				
 				<br>
-				
-				<label for = "age">Age</label>
-				<input id = "age" name = "age" type = "number" required>
-				<br>
-				
-				<label for = "username">Username</label>
-				<input id = "username" name = "username" type = "text" required>
-				<br>
-				
-				<label for = "password">Password</label>
-				<input id = "password" name = "password" type = "password" required>
-				<br>
-				
-				<label for = "confirm_p">Confirm Password</label>
-				<input id = "confirm_p" name = "confirm_p" type = "password" required>
-				<br>
-				
-				<input type = "submit" value = "Signup">
-			</form>
-		
+				<p class = "description">Have an account?
+					<a class = "links" href = "{{url_for('login')}}">Login</a>
+				</p>
+			</div>
 		</div>
 	</body>
 </html>
