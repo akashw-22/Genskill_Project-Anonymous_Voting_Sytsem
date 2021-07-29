@@ -8,7 +8,7 @@ This is a web application that allows the user to create polls and participate i
 
 To configure install the python packages listed in the requirements.txt and make sure you have postgresql in your system
 
-Run the commands in the following order to run the application
+Run the commands in a unix shell in the following order to run the application
 
 * export FLASK_APP=voting
 * flask initdb : (This has to be run only once to setup the database)
