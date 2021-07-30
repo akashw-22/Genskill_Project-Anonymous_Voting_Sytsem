@@ -1,6 +1,6 @@
 # Genskill_Project-Anonymous_Voting_Sytsem
 
-This is a web application that allows the user to create polls and participate in polls anonymously
+This is a web application that allows the user to create polls and participate in polls anonymously (Works best on Chrome)
 
 * Users can register to the database and login to the site
 * They can create a poll and shedule the deadline. The creators can view the poll info in runtime
