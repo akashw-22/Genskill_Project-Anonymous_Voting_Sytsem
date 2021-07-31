@@ -14,3 +14,7 @@ Run the commands in a unix shell in the following order to run the application
 * flask initdb : (This has to be run only once to setup the database)
 * flask run : to run the application
 
+
+
+The site is now live at https://anonymousvoting.herokuapp.com/.
+(Although the site is deployed in another repo :|. link:https://github.com/akashw-22/test)
